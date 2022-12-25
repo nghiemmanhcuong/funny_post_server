@@ -39,7 +39,7 @@ class UserController {
                 .select('-password')
                 .skip(limit * currPage - limit)
                 .limit(limit)
-                .sort({createdAt: -1});
+                .sort({createdAt: 1});
             const countDocuments = await User.countDocuments({
                 $and: [{_id: {$ne: req.userId}}, {_id: {$nin: currUser.followings}}],
             });
